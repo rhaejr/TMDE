@@ -15,8 +15,13 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+
 private:
     Ui::MainWindow *ui;
+
+private slots:
+	void create_table();
+
 };
 
 #endif // MAINWINDOW_H
