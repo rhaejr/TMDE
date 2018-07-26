@@ -1,0 +1,9 @@
+{
+  "name": "js-tmde",
+  "version": "0.0.0",
+  "description": "JS TMDE",
+  "main": "server.js",
+  "author": {
+    "name": "computert"
+  }
+}

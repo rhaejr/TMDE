@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QtWidgets>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,5 +17,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::create_table()
 {
-	ui->tableView.setitem
+	auto header = new QHeaderView()
+	ui->tableView->setModel(model);
 }
