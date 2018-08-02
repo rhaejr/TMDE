@@ -1,0 +1,14 @@
+{
+  "name": "electrontmde",
+  "version": "1.0.0",
+  "description": "TMDE tracker app to make tracker faster to update",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Rhea",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^2.0.6"
+  }
+}
