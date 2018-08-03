@@ -5,10 +5,25 @@
 </head>
 <body>
     <h1>TMDE Tracker</h1>
+    <div id="table"></div>
+   
 
     <script>
         const electron = require('electron');
+        var tableify = require('tableify');
+        
         const {ipcRenderer} = electron;
+
+        const div = document.getElementById('table');
+
+        ipcRenderer.on('table:add', function(e, table){
+            // var table = tableify(table);
+            div.innerHTML += table;
+            for (var i = 0; i < 7; i++) {
+                document.getElementById("tracker").deleteRow(0);
+                }
+            
+        });
     </script>
 </body>
 </html>

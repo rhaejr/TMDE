@@ -9,6 +9,8 @@
   "author": "Michael Rhea",
   "license": "MIT",
   "dependencies": {
-    "electron": "^2.0.6"
+    "electron": "^2.0.6",
+    "tableify": "^1.1.0",
+    "xlsx": "^0.13.3"
   }
 }

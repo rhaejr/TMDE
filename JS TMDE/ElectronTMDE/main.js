@@ -1,6 +1,8 @@
 const electron = require('electron');
 const url = require('url');
 const path = require('path');
+const XLSX = require('xlsx');
+tableify = require('tableify');
 
 const {app, BrowserWindow, Menu, ipcMain} = electron;
 
@@ -28,7 +30,12 @@ Menu.setApplicationMenu(mainMenu);
 });
 
 // TODO: Load tmde tracker excel into a table
+var workbook = XLSX.readFile('TMDE EQUIPMENT.xlsm');
+var sheet_name_list = workbook.SheetNames;
+var sheet = sheet_name_list.indexOf('Consolidated');
 
+
+var consolodated = XLSX.utils.sheet_to_html(workbook.Sheets[sheet_name_list[1]], {id : "tracker"});
 // TODO: make tools to quickly update the tracker
 
 // TODO: in a perfect world scanned returned doc could auto update the tracker
@@ -40,9 +47,22 @@ Menu.setApplicationMenu(mainMenu);
 // create menu template
 const mainMenuTemplate = [
     {
-        label: 'File'
+        label: 'File',
+        submenu:[
+            {
+                label:'Clear Items',
+            click(){
+                sendTable();
+                }
+        }
+        ]
     }
 ];
+
+function sendTable(){
+    mainWindow.webContents.send('table:add', consolodated);
+    console.log('456');
+}
 
 // If Mac add empty object to menu
 if(process.platform == 'darwin'){
