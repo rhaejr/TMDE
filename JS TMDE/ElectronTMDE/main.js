@@ -35,7 +35,7 @@ var sheet_name_list = workbook.SheetNames;
 var sheet = sheet_name_list.indexOf('Consolidated');
 
 
-var consolodated = XLSX.utils.sheet_to_html(workbook.Sheets[sheet_name_list[1]], {id : "tracker"});
+var consolodated = XLSX.utils.sheet_to_html(workbook.Sheets[sheet_name_list[1]], {id : "tracker", editable:true});
 // TODO: make tools to quickly update the tracker
 
 // TODO: in a perfect world scanned returned doc could auto update the tracker

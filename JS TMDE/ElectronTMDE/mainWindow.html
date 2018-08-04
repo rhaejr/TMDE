@@ -5,6 +5,8 @@
 </head>
 <body>
     <h1>TMDE Tracker</h1>
+    <input type="button" value="Delete column" onClick="deleteColumn()" />
+
     <div id="table"></div>
    
 
@@ -16,13 +18,27 @@
 
         const div = document.getElementById('table');
 
+        function deleteColumn() {   
+            var allRows = document.getElementById('tracker').rows;
+            for (var i=0; i< allRows.length; i++) {
+                if (allRows[i].cells.length > 3) {
+                    allRows[i].deleteCell(-1); //delete the cell
+                } else {
+                    alert("You can't delete more columns.");
+                return;
+                    }
+                }   
+            }
+
         ipcRenderer.on('table:add', function(e, table){
             // var table = tableify(table);
             div.innerHTML += table;
             for (var i = 0; i < 7; i++) {
                 document.getElementById("tracker").deleteRow(0);
                 }
-            
+            for(var i = 0; i<16; i++){
+                deleteColumn();
+            }
         });
     </script>
 </body>
